@@ -1,12 +1,7 @@
 package it.sevenbits.task.format.readFile;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
-/**
- * by andrey on 22.04.16.
- */
 public class Read {
 
     public void read() {
@@ -25,18 +20,19 @@ public class Read {
             while ((symbol = reader.read()) != -1) {
                 printWriter.print((char)symbol);
                 System.out.print((char)symbol);
-
-                if (symbol == '{') {
-                    System.out.print("\n    ");
-                    printWriter.print("\n    ");
-
-                } else if (symbol == ';') {
-                    System.out.print("\n");
-                    printWriter.print("\n");
-
-                } else if (symbol == '}') {
-                    System.out.print("\n");
-                    printWriter.print("\n");
+                switch (symbol) {
+                    case '{':
+                        System.out.print("\n    ");
+                        printWriter.print("\n    ");
+                        break;
+                    case ';':
+                        System.out.print("\n");
+                        printWriter.print("\n");
+                        break;
+                    case '}':
+                        System.out.print("\n");
+                        printWriter.print("\n");
+                        break;
                 }
             }
             reader.close();

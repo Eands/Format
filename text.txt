@@ -1,6 +1,1 @@
-asdsa;dasd;
-class{sdas;}
-asdsa;dasd;
-class{sdas;}
-asdsa;dasd;
-class{sdas;}
+asdsa;dasd;class{sdas;}
