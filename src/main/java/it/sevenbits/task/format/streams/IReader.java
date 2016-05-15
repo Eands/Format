@@ -1,4 +1,4 @@
-package it.sevenbits.task.format.readFile;
+package it.sevenbits.task.format.streams;
 
 import java.io.IOException;
 
@@ -11,10 +11,10 @@ public interface IReader {
      * @return reading
      * @throws IOException
      */
-    public int read() throws IOException;
+    int read() throws IOException;
 
     /**
      * closing thread
      */
-    public void close();
+    void close();
 }

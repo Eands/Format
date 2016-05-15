@@ -1,20 +1,20 @@
-package it.sevenbits.task.format.recordFile;
+package it.sevenbits.task.format.streams;
 
 import java.io.*;
 
 /**
  * write to file
  */
-public class Writers implements IWriter{
+public class Writers implements IWriter {
 
 private FileOutputStream outputStream;
 
     /**
      * write to file
      */
-    public Writers() {
+    public Writers(String s) {
         try {
-            outputStream = new FileOutputStream("outtext.txt");
+            outputStream = new FileOutputStream(s);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -25,7 +25,7 @@ private FileOutputStream outputStream;
      */
     public void write(char symbol) {
         try {
-            outputStream.write(symbol);
+                outputStream.write(symbol);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -35,7 +35,6 @@ private FileOutputStream outputStream;
      * closing thread
      */
     public void close(){
-
         try {
             outputStream.close();
         } catch (IOException e) {

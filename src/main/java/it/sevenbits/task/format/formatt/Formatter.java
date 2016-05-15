@@ -1,7 +1,7 @@
-package it.sevenbits.task.format.Formatt;
+package it.sevenbits.task.format.formatt;
 
-import it.sevenbits.task.format.recordFile.IWriter;
-import it.sevenbits.task.format.readFile.IReader;
+import it.sevenbits.task.format.streams.IWriter;
+import it.sevenbits.task.format.streams.IReader;
 
 import java.io.IOException;
 
@@ -14,19 +14,19 @@ public class Formatter {
      * @param reader stream file read
      * @param writer stream file writer
      */
-    public void format(final IReader reader,final IWriter writer){
+    public void format(final IReader reader, final IWriter writer) {
         char nowsymbol;
-        boolean s=false;
+        boolean s = false;
 
-        try{
+        try {
             int c;
-            while((c=reader.read())!= -1) {
+            while((c = reader.read()) != -1) {
             nowsymbol = (char)c;
                 switch (nowsymbol) {
                     case '{':
+                        writer.write(' ');
                         writerBracket(nowsymbol, writer);
                         s = true;
-
                         break;
                     case ';':
                         if (s) {
@@ -37,7 +37,7 @@ public class Formatter {
                         break;
                     case '}':
                         s = false;
-                        writer.write(nowsymbol);
+                        writerClosedBracket(nowsymbol, writer);
                         writer.write('\n');
                         break;
                     default:
@@ -55,12 +55,17 @@ public class Formatter {
      * @param symbol the desired character
      * @param writer write to file
      */
-    private void writerBracket(char symbol, final IWriter writer) {
+    private void writerBracket(final char symbol, final IWriter writer) {
         writer.write(symbol);
         writer.write('\n');
-        for(int i=0;i<4;i++) {
+        for(int i = 0; i < 4; i++) {
             writer.write(' ');
         }
+    }
+
+    private void writerClosedBracket(final char symbol, final IWriter writer) {
+        writer.write('\n');
+        writer.write(symbol);
     }
 
     /**
@@ -68,10 +73,10 @@ public class Formatter {
      * @param symbol the desired character
      * @param writer write to file
      */
-    private void writerSpace(char symbol, final IWriter writer){
+    private void writerSpace(final char symbol, final IWriter writer) {
         writer.write(symbol);
         writer.write('\n');
-        for(int i=0;i<4;i++) {
+        for(int i = 0; i < 4; i++) {
             writer.write(' ');
         }
     }

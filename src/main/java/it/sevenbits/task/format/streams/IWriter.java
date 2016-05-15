@@ -1,4 +1,4 @@
-package it.sevenbits.task.format.recordFile;
+package it.sevenbits.task.format.streams;
 
 /**
  * write to a file interface
@@ -8,10 +8,10 @@ public interface IWriter {
      *
      * @param symbol writeable character
      */
-    public void write(char symbol);
+    void write(char symbol);
 
     /**
      * closing thread
      */
-    public void close();
+    void close();
 }

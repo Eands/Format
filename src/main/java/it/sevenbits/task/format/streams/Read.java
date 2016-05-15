@@ -1,11 +1,10 @@
-package it.sevenbits.task.format.readFile;
+package it.sevenbits.task.format.streams;
+
+import java.io.*;
 
 /**
  *
  */
-
-import java.io.*;
-
 public class Read implements IReader {
     private BufferedReader reader;
     private InputStream inputFileStream;
@@ -15,7 +14,7 @@ public class Read implements IReader {
      *
      * @param s name file
      */
-    public Read(String s) {
+    public Read(final String s) {
         try {
             File inputFile = new File(s);
             inputFileStream = new FileInputStream(inputFile);
@@ -28,6 +27,11 @@ public class Read implements IReader {
         }
     }
 
+
+    /**
+     * @return return character read
+     * @throws IOException
+     */
     public int read() throws IOException {
         return reader.read();
     }
@@ -35,7 +39,7 @@ public class Read implements IReader {
     /**
      * Closing thread
      */
-    public void close(){
+    public void close() {
         try {
             reader.close();
             inputFileStream.close();

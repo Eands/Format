@@ -2,9 +2,9 @@ package it.sevenbits.task.format.main;
 
 
 
-import it.sevenbits.task.format.Formatt.Formatter;
-import it.sevenbits.task.format.readFile.Read;
-import it.sevenbits.task.format.recordFile.Writers;
+import it.sevenbits.task.format.formatt.Formatter;
+import it.sevenbits.task.format.streams.Read;
+import it.sevenbits.task.format.streams.Writers;
 
 /**
  * application entry point
