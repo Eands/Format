@@ -20,6 +20,4 @@ public class Main {
         formatter.format(read, writer);
 
     }
-
-
 }

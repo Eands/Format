@@ -2,6 +2,7 @@ package it.sevenbits.task.format.streams;
 
 import java.io.IOException;
 
+
 /**
  * reader interface
  */
@@ -9,7 +10,6 @@ public interface IReader {
     /**
      *
      * @return reading
-     * @throws IOException
      */
     int read() throws IOException;
 
